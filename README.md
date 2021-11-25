@@ -39,8 +39,18 @@ All code must follow this naming convention:
 | `typedef function *` | `FCamelCase`
 | `constant` | `NAMESPACE_UPPER_CASE_UNDERSCORE`
 
+## Versioning
+* The version gets updated before a release.
+* When a version number gets changed, the lower levels get set to `0`.
+
+| Level | Update Condition |
+| ----- | ---------------- |
+| Major | Any changes or deletions to the public API that break source compatibility.
+| Minor | Any additions to the public API.
+| Patch | Any changes done that break binary compatibility (changes of typedefs, structs, private APIs, etc.).
+| Tweak | Any minor changes that don't break binary compatibility.
+
 ## Public APIs
-An addition to the API might happen at any time, a change or removal will happen only on major version changes.
 
 ### Module `mhc`
 * The code is added directly to `libmhc` without creating an actual module.
