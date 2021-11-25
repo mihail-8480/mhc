@@ -2,6 +2,28 @@
 
 A C convenience library.
 
+## Goals
+
+### Full Async Support
+- [x] Add cooperative multi-tasking.
+- [ ] Add asynchronous IO.
+- [ ] Make all the async code thread safe and use an N:M model for the cooperative multi-tasking.
+- [ ] Write a web server using async IO.
+- [ ] Full HTTP/2 support for the web server.
+- [ ] Full HTTP/3 support for the web server.
+
+### Other Concurrency Stuff
+- [ ] Add Generator functions.
+- [ ] Add Windows and FreeBSD support.
+- [ ] Make the code more memory safe.
+
+### Abstractions
+- [ ] Implement interfaces.
+- [ ] Make every API be more extensible by using interfaces.
+- [ ] Make our own implementation of streams.
+- [ ] Implement some common data types and algorithms.
+- [ ] Implement proper error reporting.
+
 ## Naming
 All code must follow this naming convention: 
 
