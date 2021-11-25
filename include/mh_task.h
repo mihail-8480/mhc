@@ -1,7 +1,7 @@
 #ifndef CASYNC_MH_TASK_H
 #define CASYNC_MH_TASK_H
 
-#include "mh_context.h"
+#include "mh.h"
 
 // A task is a function that could be executed at any point in time in the future.
 typedef struct mh_task mh_task_t, *Task;
@@ -35,17 +35,6 @@ typedef enum mh_task_result_status {
     MH_TASK_RESULT_COMPLETE = 2
 } mh_task_result_status_t;
 
-// A structure that represents how the task should behave.
-typedef struct mh_task_start {
-    // The function that does the work for the task.
-    FTaskStart func;
-    // The arguments that should be passed to the task.
-    Any arguments;
-    // The scheduler that will execute the task.
-    TaskScheduler scheduler;
-    // The stack size of the task.
-    count_t stack_size;
-} mh_task_start_t;
 
 // The error codes that get returned by mh_task_get_value().
 typedef enum mh_task_value_error {
@@ -59,6 +48,19 @@ typedef enum mh_task_value_error {
     MH_TASK_VALUE_IS_PENDING = 3
 } mh_task_value_error_t;
 
+// A structure that represents how the task should behave.
+typedef struct mh_task_start {
+    // The function that does the work for the task.
+    FTaskStart func;
+    // The arguments that should be passed to the task.
+    Any arguments;
+    // The scheduler that will execute the task.
+    TaskScheduler scheduler;
+    // The stack size of the task.
+    count_t stack_size;
+} mh_task_start_t;
+
+
 // (Potentially) Give control to another task.
 MH_EXPORT void mh_task_yield(Task task);
 
@@ -68,7 +70,7 @@ MH_EXPORT TaskScheduler mh_task_sched_new(void);
 // Destroy a task scheduler.
 MH_EXPORT void mh_task_sched_destroy(TaskScheduler sched);
 
-// Dereference a task (this might free the resources used by the task.)
+// Dereference a task (this might free the resources used by the task).
 MH_EXPORT void mh_task_dereference(Task task);
 
 // Create a new task.

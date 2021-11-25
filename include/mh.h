@@ -39,7 +39,7 @@ typedef struct mh_library_version {
 } mh_library_version_t, * const LibraryVersion;
 
 // Get library version.
-LibraryVersion mh_get_version(void);
+MH_EXPORT LibraryVersion mh_get_version(void);
 #endif
 
 #endif //CASYNC_MH_H

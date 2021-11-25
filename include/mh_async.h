@@ -2,6 +2,7 @@
 #define CASYNC_MH_ASYNC_H
 
 #include "mh_task.h"
+#include "mh_context.h"
 
 // Create a scheduler that calls the async_main declaration if MH_MAIN_ASYNC is defined, it will define a main() function.
 #ifdef MH_MAIN_ASYNC
@@ -11,8 +12,10 @@
 #define MH_MAIN_STACK_SIZE MH_DEFAULT_STACK_SIZE
 #endif
 
+// The new entry point of the program.
 MH_EXPORT void main_async(Task self);
 
+// Should be obtained using mh_task_get_arguments().
 typedef struct main_args {
     int argc;
     String *argv;
