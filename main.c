@@ -2,6 +2,11 @@
 #include <mh_async.h>
 #include <stdio.h>
 
+// todo: add a function for resuming an awaited task externally (using an indirect pointer to the task)
+// todo: split <mh_task.h> into smaller parts
+// todo: implement a utility function for starting tasks
+// todo: implement async IO using io_uring
+
 void test(Task self) {
     printf("%s\n",(String) mh_task_get_arguments(self));
     mh_task_reject(self, "Lol");

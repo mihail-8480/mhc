@@ -23,6 +23,7 @@ A C convenience library.
 - [ ] Make our own implementation of streams.
 - [ ] Implement some common data types and algorithms.
 - [ ] Implement proper error reporting.
+- [ ] Implement unit testing and write tests for everything.
 
 ## Naming
 All code must follow this naming convention: 
