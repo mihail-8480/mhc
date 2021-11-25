@@ -6,6 +6,7 @@ A C convenience library.
 
 ### Full Async Support
 - [x] Add cooperative multi-tasking.
+- [ ] Add timers and semaphores.
 - [ ] Add asynchronous IO.
 - [ ] Make all the async code thread safe and use an N:M model for the cooperative multi-tasking.
 - [ ] Write a web server using async IO.
