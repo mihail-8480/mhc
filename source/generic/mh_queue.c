@@ -1,5 +1,5 @@
-#include <generic/mh_queue.t.h>
-#include <generic/mh_alloc.h>
+#include MH_QUEUE_IMPL
+#include MH_ALLOC_IMPL
 
 Queue mh_queue_new(void) {
     return mh_calloc(1, sizeof(mh_queue_t));

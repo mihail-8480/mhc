@@ -1,6 +1,5 @@
-#include <mh.h>
+#include MH_SELFTEST_IMPL
 #include <stdio.h>
-#include "../private/generic/mh_selftest.h"
 
 #define mh_stringify1(x) #x
 #define mh_stringify(x) mh_stringify1(x)

@@ -1,6 +1,6 @@
-#include <tasks/mh_task.t.h>
-#include <generic/mh_queue.t.h>
-#include <generic/mh_alloc.h>
+#include MH_TASK_IMPL
+#include MH_QUEUE_IMPL
+#include MH_ALLOC_IMPL
 
 void mh_task_set_result(Task task, mh_task_result_status_t status, Any value) {
     mh_assert(task != MH_NULL);

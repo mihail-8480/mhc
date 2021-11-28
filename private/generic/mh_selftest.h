@@ -3,7 +3,14 @@
 
 #include <mh.h>
 
+
+#define MH_RESET_COLOR "\033[0m"
+#define MH_DEBUG_COLOR "\033[1;33m"
+#define MH_ASSERT_FAIL_COLOR "\033[1;31m"
+
+
 #ifdef DEBUG
+
 // A function that gets called on a failed assertion.
 MH_EXPORT void mh_assert_fail(String assertion, String file, count_t line, String function);
 

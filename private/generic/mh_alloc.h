@@ -1,7 +1,7 @@
 #ifndef CASYNC_MH_ALLOC_H
 #define CASYNC_MH_ALLOC_H
 
-#include "mh_selftest.h"
+#include MH_SELFTEST_IMPL
 #include <stdlib.h>
 
 #define mh_calloc(...) mh_wrap(calloc, MH_TRUE, mh_wrap_return != MH_NULL, __VA_ARGS__)

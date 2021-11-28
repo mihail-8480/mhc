@@ -1,5 +1,5 @@
-#include <ucontext/mh_context.t.h>
-#include <generic/mh_alloc.h>
+#include MH_CONTEXT_IMPL
+#include MH_ALLOC_IMPL
 #if DEBUG
 #include <valgrind/valgrind.h>
 #endif

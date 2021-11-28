@@ -14,5 +14,6 @@ target_compile_definitions(mhc_base INTERFACE "MH_PROJECT_DESCRIPTION=${CMAKE_PR
 
 add_library(mhc SHARED source/mh.c include/mh.h include/mh_async.h include/mh_bool.h include/mh_context.h include/mh_queue.h include/mh_task.h)
 target_compile_definitions(mhc PUBLIC "MH_LIBRARY")
+target_include_directories(mhc PRIVATE "private/")
 target_compile_options(mhc PUBLIC "-fPIC")
 target_link_libraries(mhc PRIVATE mhc_base)

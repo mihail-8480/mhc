@@ -1,10 +1,6 @@
-#include <mh.h>
+#include MH_SELFTEST_IMPL
 #include <stdlib.h>
 #include <stdio.h>
-
-#define MH_RESET_COLOR "\033[0m"
-#define MH_DEBUG_COLOR "\033[1;33m"
-#define MH_ASSERT_FAIL_COLOR "\033[1;31m"
 
 void mh_assert_fail(String assertion, String file, count_t line, String function) {
     fprintf(stderr,MH_ASSERT_FAIL_COLOR "mh_assert_fail(): %s:%llu: %s(): Assertion `%s` failed.\n" MH_RESET_COLOR, file, line, function, assertion);
