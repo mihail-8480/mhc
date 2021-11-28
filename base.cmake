@@ -1,0 +1,18 @@
+cmake_minimum_required(VERSION 3.20)
+set(CMAKE_C_FLAGS "-Wall -Werror")
+set(CMAKE_C_FLAGS_DEBUG "-DDEBUG -ggdb3")
+set(CMAKE_C_FLAGS_RELEASE "-DRELEASE -O3")
+set(CMAKE_C_STANDARD 11)
+
+add_library(mhc_base INTERFACE)
+target_compile_definitions(mhc_base INTERFACE "MH_PROJECT_NAME=${CMAKE_PROJECT_NAME}")
+target_compile_definitions(mhc_base INTERFACE "MH_PROJECT_VERSION_MAJOR=${CMAKE_PROJECT_VERSION_MAJOR}")
+target_compile_definitions(mhc_base INTERFACE "MH_PROJECT_VERSION_MINOR=${CMAKE_PROJECT_VERSION_MINOR}")
+target_compile_definitions(mhc_base INTERFACE "MH_PROJECT_VERSION_PATCH=${CMAKE_PROJECT_VERSION_PATCH}")
+target_compile_definitions(mhc_base INTERFACE "MH_PROJECT_VERSION_TWEAK=${CMAKE_PROJECT_VERSION_TWEAK}")
+target_compile_definitions(mhc_base INTERFACE "MH_PROJECT_DESCRIPTION=${CMAKE_PROJECT_DESCRIPTION}")
+
+add_library(mhc SHARED source/mh.c include/mh.h include/mh_async.h include/mh_bool.h include/mh_context.h include/mh_queue.h include/mh_task.h)
+target_compile_definitions(mhc PUBLIC "MH_LIBRARY")
+target_compile_options(mhc PUBLIC "-fPIC")
+target_link_libraries(mhc PRIVATE mhc_base)
