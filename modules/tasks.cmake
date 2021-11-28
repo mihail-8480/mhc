@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-include(mhc.cmake)
+include(project/mhc.cmake)
 add_library(mhc_tasks STATIC private/tasks/mh_task.t.h source/tasks/mh_task.c)
 mhc_module_declare(tasks)
 mhc_feature(task tasks/mh_task.t.h)

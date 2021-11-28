@@ -11,7 +11,7 @@ void main_async(Task self) {
         .scheduler = mh_task_get_scheduler(self),
         .func = test,
         .stack_size = MH_DEFAULT_STACK_SIZE,
-        .arguments = NULL
+        .arguments = MH_NULL
     }));
 
     mh_task_yield(self);
