@@ -1,7 +1,7 @@
 #ifndef CASYNC_MH_TASK_T_H
 #define CASYNC_MH_TASK_T_H
 #include <mh_task.h>
-#include "mh_context.t.h"
+#include MH_CONTEXT_IMPL
 #include "generic/mh_queue.t.h"
 
 typedef void mh_task_finalizer_func(Task task, Any data);
