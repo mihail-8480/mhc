@@ -1,10 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(
-        mhc
-        LANGUAGES C
-        VERSION 0.0.0.1
-        DESCRIPTION "A C convenience library."
-)
+project(mhc LANGUAGES C VERSION 0.0.0.1 DESCRIPTION "A C convenience library.")
 
 include(project/base.cmake)
 include(project/mhc.cmake)
