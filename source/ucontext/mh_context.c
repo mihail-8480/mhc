@@ -1,10 +1,10 @@
 #include MH_CONTEXT_IMPL
 #include MH_ALLOC_IMPL
-#if DEBUG
+#if MH_VALGRIND
 #include <valgrind/valgrind.h>
 #endif
 void mh_context_stack_destroy(ContextStack stack) {
-#if DEBUG
+#if MH_VALGRIND
     VALGRIND_STACK_DEREGISTER(stack->stack);
 #endif
     mh_assert(stack != MH_NULL);
@@ -59,7 +59,7 @@ void mh_context_restore(Context context) {
 
 ContextStack mh_context_stack_new(count_t size) {
     ContextStack stack = mh_malloc((sizeof(mh_context_stack_t) - MH_DEFAULT_STACK_SIZE) + size);
-#if DEBUG
+#if MH_VALGRIND
     VALGRIND_STACK_REGISTER(stack->stack, stack->stack + size);
 #endif
     stack->size = size;

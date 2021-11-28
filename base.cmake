@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.20)
+if (MH_VALGRIND)
+set(VALGRIND_FLAG "-DMH_VALGRIND")
+endif()
 set(CMAKE_C_FLAGS "-Wall -Werror")
-set(CMAKE_C_FLAGS_DEBUG "-DDEBUG -ggdb3")
+set(CMAKE_C_FLAGS_DEBUG "-DDEBUG -ggdb3 ${VALGRIND_FLAG}")
 set(CMAKE_C_FLAGS_RELEASE "-DRELEASE -O3")
 set(CMAKE_C_STANDARD 11)
 
