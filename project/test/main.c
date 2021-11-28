@@ -1,6 +1,5 @@
 #define MH_MAIN_ASYNC
 #include <mh_async.h>
-#include <stdio.h>
 
 void test(Task self) {
     mh_task_yield(self);
