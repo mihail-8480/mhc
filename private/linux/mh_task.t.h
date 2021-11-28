@@ -26,7 +26,6 @@ struct mh_task {
     mh_task_start_t start;
     mh_task_finalizer_t awaiter;
     mh_task_finalizer_t *finalizer;
-    mh_queue_node_t queue_handle;
     _Atomic(count_t) references;
 };
 

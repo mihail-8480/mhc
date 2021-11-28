@@ -7,9 +7,7 @@
 typedef struct mh_queue mh_queue_t, *Queue;
 
 // Put something in the queue (the element gets added).
-// The handle is a block of memory that gets used as the container.
-// It needs to be big enough to contain two pointers.
-MH_EXPORT void mh_queue(Queue queue, Any data, Any handle);
+MH_EXPORT void mh_queue(Queue queue, Any data);
 
 // Take something from the queue (the element gets removed).
 MH_EXPORT Any mh_queue_take(Queue queue);

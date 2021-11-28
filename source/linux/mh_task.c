@@ -102,10 +102,8 @@ Task mh_task_new(mh_task_start_t start) {
     task->stack = stack;
     task->result.status = MH_TASK_RESULT_PENDING;
     task->result.value = MH_NULL;
-    task->queue_handle.next = MH_NULL;
-    task->queue_handle.data = MH_NULL;
     mh_context_create(&task->context, stack, (FContextStart) start.func, &start.scheduler->finalizer.context);
-    mh_queue(start.scheduler->task_queue, task, &task->queue_handle);
+    mh_queue(start.scheduler->task_queue, task);
     mh_debug("Task created.", task);
     return task;
 }
@@ -127,7 +125,7 @@ void mh_task_sched_run(TaskScheduler scheduler) {
         }
         if (c_task->status != MH_TASK_COMPLETE && c_task->status != MH_TASK_REJECTED) {
             mh_debug("Re-queueing task.", c_task);
-            mh_queue(scheduler->task_queue, c_task, &c_task->queue_handle);
+            mh_queue(scheduler->task_queue, c_task);
         } else {
             mh_debug("A task has exited.", c_task);
             while (c_task->finalizer != MH_NULL) {
@@ -135,7 +133,7 @@ void mh_task_sched_run(TaskScheduler scheduler) {
                 if (c_task->finalizer->data_is_task) {
                     mh_debug("Resuming paused task.", c_task->finalizer->data);
                     ((Task)c_task->finalizer->data)->status = MH_TASK_PENDING;
-                    mh_queue(scheduler->task_queue, c_task->finalizer->data, &c_task->queue_handle);
+                    mh_queue(scheduler->task_queue, c_task->finalizer->data);
                 }
 
                 if (c_task->finalizer->func != MH_NULL) {
