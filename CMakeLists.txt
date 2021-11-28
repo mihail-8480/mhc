@@ -11,5 +11,5 @@ include(modules/mhc.cmake)
 add_mhc_module("generic")
 add_mhc_module("linux")
 
-add_executable(casync main.c)
+add_executable(casync main.c todo.c)
 target_link_libraries(casync PRIVATE mhc)

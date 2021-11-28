@@ -16,6 +16,9 @@ typedef unsigned long long count_t;
 // Something that is not being used but needs to be there.
 #define MH_UNUSED __attribute__((unused))
 
+// Code that gets called before the entry point of the program.
+#define MH_CONSTRUCTOR __attribute__((constructor)) MH_UNUSED
+
 // I guarantee that this function will never return.
 #define mh_never __attribute__((noreturn)) void
 

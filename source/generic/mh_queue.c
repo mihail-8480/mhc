@@ -14,6 +14,7 @@ Any mh_queue_take(Queue queue) {
     mh_assert(queue != MH_NULL);
     mh_queue_node_t *node = queue->first;
     if (node == MH_NULL) {
+        mh_debug("Queue is empty, returning MH_NULL.", queue);
         return MH_NULL;
     }
     queue->first = queue->first->next;

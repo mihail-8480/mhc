@@ -13,10 +13,16 @@ MH_EXPORT void mh_assert_fail(String assertion, String file, count_t line, Strin
     mh_assert_fail(#expr, __FILE__, __LINE__, __FUNCTION__);\
 }})
 
+
+MH_EXPORT void mh_debug_log(String message, Any object, String file, count_t line, String function);
+#define mh_debug(__message__, __object__) mh_debug_log(__message__, (Any)(__object__), __FILE__, __LINE__, __FUNCTION__)
+
 #else
 // Ignore the assertion.
 #define mh_assert(expr) ((void)(0))
+#define mh_debug(__message__, __object__) ((void)(0))
 #endif
+
 
 #define mh_wrap_return _ret
 

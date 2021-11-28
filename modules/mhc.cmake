@@ -6,6 +6,7 @@ set(CMAKE_C_STANDARD 11)
 
 add_library(mhc SHARED source/mh.c include/mh.h include/mh_async.h include/mh_bool.h include/mh_context.h include/mh_queue.h include/mh_task.h)
 target_compile_definitions(mhc PUBLIC "MH_LIBRARY")
+target_compile_options(mhc PUBLIC "-fPIC")
 target_compile_definitions(mhc PRIVATE "MH_PROJECT_NAME=${CMAKE_PROJECT_NAME}")
 target_compile_definitions(mhc PRIVATE "MH_PROJECT_VERSION_MAJOR=${CMAKE_PROJECT_VERSION_MAJOR}")
 target_compile_definitions(mhc PRIVATE "MH_PROJECT_VERSION_MINOR=${CMAKE_PROJECT_VERSION_MINOR}")
