@@ -2,7 +2,7 @@
 #define CASYNC_MH_CONTEXT_T_H
 #include <mh.h>
 #include <mh_context.h>
-#ifndef WIN32
+#ifndef MH_WINDOWS
 #include <ucontext.h>
 #else
 #include "win32_ucontext.h"

@@ -15,6 +15,10 @@ target_compile_definitions(mhc_base INTERFACE "MH_PROJECT_VERSION_PATCH=${CMAKE_
 target_compile_definitions(mhc_base INTERFACE "MH_PROJECT_VERSION_TWEAK=${CMAKE_PROJECT_VERSION_TWEAK}")
 target_compile_definitions(mhc_base INTERFACE "MH_PROJECT_DESCRIPTION=${CMAKE_PROJECT_DESCRIPTION}")
 
+if(WIN32)
+    target_compile_definitions(mhc_base INTERFACE "MH_WINDOWS=1")
+endif()
+
 add_library(mhc SHARED source/mh.c include/mh.h include/mh_async.h include/mh_bool.h include/mh_context.h include/mh_queue.h include/mh_task.h)
 target_compile_definitions(mhc PUBLIC "MH_LIBRARY")
 target_include_directories(mhc PRIVATE "private/")
