@@ -3,11 +3,15 @@
 
 #include <mh.h>
 
-
+#ifndef MH_WINDOWS
 #define MH_RESET_COLOR "\033[0m"
 #define MH_DEBUG_COLOR "\033[1;33m"
 #define MH_ASSERT_FAIL_COLOR "\033[1;31m"
-
+#else
+#define MH_RESET_COLOR ""
+#define MH_DEBUG_COLOR ""
+#define MH_ASSERT_FAIL_COLOR ""
+#endif
 
 #ifdef DEBUG
 
