@@ -17,6 +17,10 @@ target_compile_definitions(mhc_base INTERFACE "MH_PROJECT_DESCRIPTION=${CMAKE_PR
 
 if(WIN32)
     target_compile_definitions(mhc_base INTERFACE "MH_WINDOWS=1")
+elseif(UNIX)
+    target_compile_definitions(mhc_base INTERFACE "MH_UNIX=1")
+else()
+    message("Unsupported platform.")
 endif()
 
 add_library(mhc SHARED source/mh.c include/mh.h include/mh_async.h include/mh_bool.h include/mh_context.h include/mh_queue.h include/mh_task.h)
